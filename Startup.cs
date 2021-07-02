@@ -26,6 +26,13 @@ namespace ValidationApp
         {            
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
